@@ -15,7 +15,7 @@ console.log("hello")
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
+ 
   const dispatch = useDispatch();
   
   const name = useRef(null);
@@ -53,17 +53,19 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse")
+          // navigate("/browse")
+          // not required as we are now using it in header in onauthstatechange
           
+          console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:"https://occ-0-2087-2186.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABXiSx5gTw7PLPpjMyot50EzOt1tMNrDExYdWiAyiYjij4eDPnXAgs18yobZMrcQCf59msLjMmNya_vTc3qkJNDgyP0XnJ6M.png?r=b38",
-              
+            photoURL:
+              "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ANetflix-avatar.png&psig=AOvVaw0awqbihHXU2qX1Ut0QGRAr&ust=1699470593752000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOjUp77LsoIDFQAAAAAdAAAAABAD",
           })
             .then(() => {
               // Profile updated!
               const { uid, email, displayName, photoURL } = auth.currentUser;
-              //using autrh because user dont have udated value
+              //using auth because user dont have updated value
               dispatch(
                 addUser({
                   uid: uid,
@@ -72,14 +74,14 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
+              // navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
               setErrorMessage(error.message);
             });
           console.log(user);
-          navigate("/browse");
+          // navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -96,7 +98,7 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
+          // navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
