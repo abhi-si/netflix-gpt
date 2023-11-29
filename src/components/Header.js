@@ -49,6 +49,9 @@ const Header = () => {
     });
     return () => unsubscribe();
   }, []);
+   console.log(user); 
+
+
 
 
   return (
@@ -60,9 +63,9 @@ const Header = () => {
 
       {/* show sign out only when user is logged in */}
       {user && (
-        <div className="flex p-2">
-          <img className="w-12 h-12" alt="usericon" src={user?.photoURL} />
-          <button onClick={handleSignOut} className="font-bold">
+        <div className="flex p-2 mx-3">
+          <img className="" alt="usericon" src={auth.currentUser.photoURL} />
+          <button onClick={handleSignOut} className="font-bold text-white">
             Sign out
           </button>
         </div>

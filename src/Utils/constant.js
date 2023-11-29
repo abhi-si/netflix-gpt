@@ -3,7 +3,7 @@ export const LOGO =
 
 
 export const user_avtar =
-  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fnetflix-smileu-profile-icon-by-norbertsloth--950470696333873491%2F&psig=AOvVaw39N8caw9A_zMSp5zgbGBu6&ust=1701182673797000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKjx0Lm15IIDFQAAAAAdAAAAABAD";
+  "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp";
 
   export const API_OPTIONS  = {
   method: 'GET',
