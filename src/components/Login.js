@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { user_avtar } from "../utils/constant";
 
 console.log("hello")
 const Login = () => {
@@ -59,8 +60,7 @@ const Login = () => {
           console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ANetflix-avatar.png&psig=AOvVaw0awqbihHXU2qX1Ut0QGRAr&ust=1699470593752000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOjUp77LsoIDFQAAAAAdAAAAABAD",
+            photoURL: user_avtar ,
           })
             .then(() => {
               // Profile updated!
