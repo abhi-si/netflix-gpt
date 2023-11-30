@@ -1,6 +1,7 @@
 
 
-const VideoTitle = ({title,overview}) => {
+const VideoTitle = ({ title, overview }) => {
+  console.log("yes ");
   return (
     <div className="w-screen aspect-video pt-60  px-24 absolute text-white bg-gradient-to-r from-black">
       <h1 className="text-5xl font-bold">{title}</h1>
@@ -13,8 +14,9 @@ const VideoTitle = ({title,overview}) => {
           More info
         </button>
       </div>
+      
     </div>
   );
 }
 
-export default VideoTitle
+export default VideoTitle;

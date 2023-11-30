@@ -49,7 +49,7 @@ const Header = () => {
     });
     return () => unsubscribe();
   }, []);
-   console.log(user); 
+  //  console.log(user); 
 
 
 
@@ -59,6 +59,7 @@ const Header = () => {
       <img
         className="w-44"
         src={LOGO}
+        alt="logo2"
       />
 
       {/* show sign out only when user is logged in */}

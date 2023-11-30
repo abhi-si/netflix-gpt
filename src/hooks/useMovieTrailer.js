@@ -1,7 +1,7 @@
 //custom hook best industry practice
-import { useDispatch, } from "react-redux";
+import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constant";
-import { addTrailerVideo } from "../utils/movieSlice";
+import { addTrailerVideo } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
 const useMovieTrailer = (movieId) => {
@@ -9,7 +9,9 @@ const useMovieTrailer = (movieId) => {
   //fetch trailer video & updating store with trailer video data
   const getMoviesVideos = async () => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/"+movieId+"/videos?language=en-US",
+      "https://api.themoviedb.org/3/movie/" +
+        movieId +
+        "/videos?language=en-US",
       API_OPTIONS
     );
     const json = await data.json();
