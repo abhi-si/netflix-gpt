@@ -1,4 +1,4 @@
-#Netflix-gpt
+#Netflix clone
 
 -npx create-react-app
 -configure tailwindcss in our project
@@ -22,6 +22,3 @@
      -title & description
      -movies suggestion
 
--Gpt
-   -search bar
-   -movies suggestion based on search bar
