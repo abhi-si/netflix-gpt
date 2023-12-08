@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/Validate";
-import { auth } from "../utils/firebase";
+import { auth, provider } from "../utils/firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -111,18 +113,39 @@ const Login = () => {
   const toogleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
   };
+
+    const handleGoogle = () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          // The signed-in user info.
+          const user = result.user;
+          // IdP data available using getAdditionalUserInfo(result)
+          // ...
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+          // ...
+        });
+  };
+  
   return (
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src={Bg_URL}
-          alt="logo"
-        />
+        <img className="   " src={Bg_URL} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" w-3/12 absolute p-10 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full md:w-3/12 absolute p-10 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign in" : "Sign up"}
@@ -131,42 +154,43 @@ const Login = () => {
           <input
             type="text"
             placeholder="Full name"
-            className="p-4 my-4 w-full bg-gray-700 rounded-lg"
+            className="p-2 my-2 w-full bg-gray-700 rounded-lg"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email address"
-          className="p-4 my-4 w-full bg-gray-700 rounded-lg"
+          className="p-2 my-2 w-full bg-gray-700 rounded-lg"
         />
         <input
           ref={password}
           type={passwordType}
           placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-700 rounded-lg"
+          className="p-2 my-2 w-full bg-gray-700 rounded-lg"
         />
-        <input
-          type="checkbox"
-          onClick={togglePassword}
-          
-        ></input>
+        <input type="checkbox" onClick={togglePassword}></input>
         <label>show password</label>
 
-        
         <p className="text-red-500 font-bold py-2">{errorMessage} </p>
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-md"
+          className="p-2 my-2 bg-red-700 w-full rounded-md hover:bg-opacity-80"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign in" : "Sign up"}
         </button>
 
-        <p className="py-4 cursor-pointer" onClick={toogleSignInForm}>
+        <p className="p-2  my-2 cursor-pointer" onClick={toogleSignInForm}>
           {isSignInForm
             ? "New to Netflix?Sign up now"
             : "Already registered ? Sign in now"}
         </p>
+        <button
+          onClick={handleGoogle}
+          className="p-2  bg-blue-400 w-full rounded-md"
+        >
+          Sign in with Google
+        </button>
       </form>
     </div>
   );

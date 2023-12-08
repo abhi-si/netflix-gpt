@@ -25,3 +25,5 @@ export const SUPPORTED_LANGUAGE = [
  
 
 ];
+
+export const OPENAI_KEY = process.env.OPENAI_kEY;
