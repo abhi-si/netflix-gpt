@@ -15,6 +15,7 @@ const SecondaryContainer = () => {
             title={"Upcoming Movies"}
             movies={movies.UpcomingMovies}
           />
+          
         
         </div>
       </div>

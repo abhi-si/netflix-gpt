@@ -6,11 +6,12 @@ import { RouterProvider } from "react-router-dom";
 
 const Body = () => {
    
-// console.log("hell")
+    // Defining a router configuration using 'createBrowserRouter' function
+    // This sets up two routes: "/" mapped to the 'Login' component and "/browse" mapped to the 'Browse' component
     const appRouter = createBrowserRouter([
         {
-            path: "/",
-            element: <Login></Login>
+            path: "/", // Root path
+            element: <Login></Login> //Component to render at root path
         },
         {
             path: "/browse",
@@ -18,7 +19,7 @@ const Body = () => {
         },
     ]);
 
-
+// Return JSX that renders the RouterProvider component with the defined router
     return (
         <div>
             <RouterProvider router={appRouter}/>
