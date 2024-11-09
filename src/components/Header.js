@@ -78,7 +78,7 @@ const Header = () => {
 
   // Return JSX that defines the UI structure for the 'Header' component
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+    <div className="absolute w-screen z-10 px-5 md:px-8 py-2 bg-gradient-to-b flex flex-col md:justify-between md:flex-row from-black">
       {/* Display the logo image */}
       <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo2" />
 

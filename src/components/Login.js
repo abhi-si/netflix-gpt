@@ -130,11 +130,15 @@ const Login = () => {
       <Header />
       <div className="absolute">
         {/* Display background image */}
-        <img className=" " src={Bg_URL} alt="logo" />
+        <img
+          className="bg-cover overflow-hidden h-screen w-screen aspect-square object-cover "
+          src={Bg_URL}
+          alt="logo"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()} // Prevent form submission
-        className="w-full md:w-3/12 absolute p-10 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="absolute items-center flex-col justify-center px-12 py-8 w-[95%] bg-black md:w-[30%] my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign in" : "Sign up"}
@@ -171,7 +175,9 @@ const Login = () => {
         </button>
 
         <p className="p-2  my-2 cursor-pointer" onClick={toogleSignInForm}>
-          {isSignInForm ? "New to Netflix? Sign up now" : "Already registered? Sign in now"}
+          {isSignInForm
+            ? "New to Netflix? Sign up now"
+            : "Already registered? Sign in now"}
         </p>
         <button
           onClick={handleGoogle}
