@@ -20,6 +20,8 @@ const useNowPlayingMovies = () => {
       getNowPlayingMovies();
     }, []);
 
+  
+
  
 }
 
